@@ -7,7 +7,7 @@ export default class MentionUtilities extends Plugin {
         // modules
         const Message = await getModule(m => m?.default?.displayName == "Message");
         const getChannelPermissions = await getModule([ 'getChannelPermissions' ]);
-        const getCurrentUser = (await getModule([ 'getCurrentUser' ]));
+        const getCurrentUser = await getModule([ 'getCurrentUser' ]);
 
         // injectors
         patch('Message', Message, 'default', (args, res) => {
