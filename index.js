@@ -2,7 +2,7 @@ import { Plugin } from '@vizality/entities';
 import { patch, unpatch } from '@vizality/patcher';
 import { getModule, messages, constants } from '@vizality/webpack';
 
-export default class MentionUtilities extends Plugin {
+export default class QuickDelete extends Plugin {
     async start () {
         // modules
         const Message = await getModule(m => m?.default?.displayName == "Message");
