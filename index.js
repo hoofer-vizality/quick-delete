@@ -11,6 +11,9 @@ export default class QuickDelete extends Plugin {
 
         // injectors
         patch('Message', Message, 'default', (args, res) => {
+            if (!args[0]?.childrenAccessories?.props){
+                return res;
+            }
             const message = args[0].childrenAccessories.props.message;
             const channel = args[0].childrenAccessories.props.channel;
             const deletePerm = getChannelPermissions.can(constants.Permissions.MANAGE_MESSAGES, channel);
