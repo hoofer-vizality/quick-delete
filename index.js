@@ -8,7 +8,6 @@ export default class QuickDelete extends Plugin {
         const Message = getModule(m => m && m.default && m.default.toString().search('childrenRepliedMessage') > -1);
         const getChannelPermissions = await getModule([ 'getChannelPermissions' ]);
         const getCurrentUser = await getModule([ 'getCurrentUser' ]);
-        console.log(Message);
         // injectors
         patch('Message', Message, 'default', (args, res) => {
             if (!args[0]?.childrenAccessories?.props){
